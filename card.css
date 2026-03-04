@@ -1,0 +1,118 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  font-family: sans-serif;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: black;
+  color: white;
+}
+.card_container {
+  perspective: 1000px;
+  height: 300px;
+  width: 350px;
+  margin: 100px auto;
+}
+.card {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+.card_container:hover .card {
+  transform: rotateY(180deg);
+}
+.front_card,
+.back_card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.front_card {
+  background-color: white;
+  padding: 20px;
+}
+.front_card img {
+  height: 200px;
+  width: 300px;
+  margin: 50px auto;
+  display: block;
+  max-width: 80%;
+}
+.back_card {
+  position: relative;
+  padding: 2px;
+  border-radius: 15px;
+  background: linear-gradient(
+    90deg,
+    rgba(200, 9, 9, 0.668),
+    rgb(7, 7, 139),
+    rgb(14, 166, 14)
+  );
+  transform: rotateY(180deg);
+  animation: flow-border 3s linear infinite;
+  background-size: 300% 300%;
+}
+.back_card_content {
+  background-color: black;
+  color: white;
+  border-radius: 13px;
+  padding: 16px 20px 12px 20px;
+  overflow-y: auto;
+  height: 100%;
+  text-align: left;
+}
+.name {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: aqua;
+  text-transform: uppercase;
+  font-family: 300;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 8px 0;
+}
+.description {
+  color: aquamarine;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+.btn {
+  padding: 6px 12px;
+  border: 1px solid pink;
+  background-color: blueviolet;
+  color: burlywood;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 10px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 5px;
+}
+.btn:hover {
+  background-color: aqua;
+  color: white;
+  border-color: brown;
+}
+.front_card:hover {
+  transform: rotateY(180deg);
+}
+@keyframes flow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
